@@ -1,0 +1,38 @@
+---===Dentists and Dragons===---
+
+VR Game where you are a dentist for dragons.
+
+The dragon feels pain.
+
+You loose when the dragon has too much pain(it snaps your head off).
+
+Each level another dragon comes to you as a patient(randomize color/ears/horns/...).
+
+You proceede to the next level once you fixed all the teeth.
+
+You have different tools to your dispoal and teeth have different kinds of ailments.
+
+Tools:
+
+Drill
+Brush
+Waterpump
+Dental Hook
+Toothpick
+Floss
+Sword
+Concrete
+Crown(Wood/Gold)
+Grills?
+Magery?
+
+Parameters:
+Pain
+
+Ailments:
+Dirt
+Caries
+Retreating gum
+Something with ROOTS!
+
+
