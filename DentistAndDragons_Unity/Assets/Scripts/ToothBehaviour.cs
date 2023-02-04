@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class ToothBehaviour : MonoBehaviour
-{
+public class ToothBehaviour : MonoBehaviour {
     [SerializeField]
     private float _totalHealth = 100f;
 
@@ -38,13 +38,15 @@ public class ToothBehaviour : MonoBehaviour
 
     private ToothState _state = ToothState.Healthy;
 
-    public void TakeDamage( float damage ) {
+    public void TakeDamage ( float damage ) {
         _currentHealth -= damage;
         float pHealth = _currentHealth / _totalHealth;
         _state = ToothState.Healthy;
         if ( pHealth < 0.0 ) {
-            _state = ToothState.Root;
+            _state = ToothState.Destroyed;
             UpdateToothState ();
+            Instantiate ( destructionEffect, transform.position, Quaternion.LookRotation(transform.up));
+            StartCoroutine ( RegenerateTooth () );
             return;
         }
         if ( pHealth < 0.25f ) {
@@ -76,6 +78,9 @@ public class ToothBehaviour : MonoBehaviour
                 _state = ToothState.Damaged;
                 break;
             case ToothState.Damaged:
+                _state = ToothState.Root;
+                break;
+            case ToothState.Root:
                 _state = ToothState.Destroyed;
                 break;
             default:
@@ -89,5 +94,15 @@ public class ToothBehaviour : MonoBehaviour
         _chippedTooth.SetActive ( _state == ToothState.Chipped );
         _damagedTooth.SetActive ( _state == ToothState.Damaged );
         _rootTooth.SetActive ( _state != ToothState.Destroyed );
+    }
+
+    IEnumerator RegenerateTooth () {
+        yield return new WaitForSeconds ( Random.Range ( 5f, 10f ) );
+        _currentHealth = _totalHealth;
+        _state = ToothState.Healthy;
+        transform.localScale = Vector3.zero;
+        transform.DOScale ( 1f, 2f );
+        UpdateToothState ();
+        yield return null;
     }
 }

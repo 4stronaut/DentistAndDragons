@@ -151,7 +151,8 @@ MonoBehaviour:
   _chippedTooth: {fileID: 7915811530400099486}
   _damagedTooth: {fileID: 7047041548753214892}
   _rootTooth: {fileID: 8206400954842387410}
-  destructionEffect: {fileID: 100004, guid: 084c6a87873fd6e4da7978a01aa18b34, type: 3}
+  destructionEffect: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+    type: 3}
 --- !u!1 &7047041548753214892
 GameObject:
   m_ObjectHideFlags: 0
