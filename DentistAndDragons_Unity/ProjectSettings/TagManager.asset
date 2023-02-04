@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pickaxe
+  - FxTemporaire
+  - Tool
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Teeth
   - Water
   - UI
   - 
