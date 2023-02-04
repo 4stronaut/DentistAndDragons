@@ -6,7 +6,7 @@ using UnityEngine;
 public class BobbertController : MonoBehaviour
 {
     public Animator animator;
-
+    public AudioSource audioSource;
     private void Awake()
     {
         animator.GetComponent<Animator>();
@@ -32,6 +32,7 @@ public class BobbertController : MonoBehaviour
 
     public void hurt()
     {
+        audioSource.Play();
         animator.SetInteger("AnimationState",3);
         animator.SetTrigger("AnimationTrigger");
     }
