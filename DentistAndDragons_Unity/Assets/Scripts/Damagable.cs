@@ -6,11 +6,15 @@ using UnityEngine;
 public class Damagable : MonoBehaviour
 {
     [SerializeField] private float health = 1f;
+    [SerializeField] private GameObject hitEffect;
     [SerializeField] private GameObject destructionEffect;
     
-    public void takeDamage(float amount)
+    public void takeDamage(float amount, Vector3 hitPosition , Vector3 hitNormal)
     {
         health -= amount;
+        
+        if (hitEffect) Instantiate(hitEffect, hitPosition,Quaternion.FromToRotation(transform.up, hitNormal));
+        
         if (health < 0f)
         {
             _destroy();
