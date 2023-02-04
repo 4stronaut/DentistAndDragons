@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pickaxe
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
