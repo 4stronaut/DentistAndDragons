@@ -3,7 +3,12 @@ guid: 3742de290f0214947aa4871c5d032695
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bobbert
+    second: {fileID: 2100000, guid: 5592c61939473454890fc64e49d086f8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

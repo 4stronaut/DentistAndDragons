@@ -17,6 +17,9 @@ public class ToothBehaviour : MonoBehaviour
     private GameObject _damagedTooth;
 
     [SerializeField]
+    private GameObject _rootTooth;
+
+    [SerializeField]
     private GameObject destructionEffect;
 
     private float _currentHealth;
@@ -29,6 +32,7 @@ public class ToothBehaviour : MonoBehaviour
         Healthy,
         Chipped,
         Damaged,
+        Root,
         Destroyed
     }
 
@@ -38,8 +42,13 @@ public class ToothBehaviour : MonoBehaviour
         _currentHealth -= damage;
         float pHealth = _currentHealth / _totalHealth;
         _state = ToothState.Healthy;
-        if( pHealth < 0.25f ) {
-            _state = ToothState.Destroyed;
+        if ( pHealth < 0.0 ) {
+            _state = ToothState.Root;
+            UpdateToothState ();
+            return;
+        }
+        if ( pHealth < 0.25f ) {
+            _state = ToothState.Root;
             UpdateToothState ();
             return;
         }
@@ -79,5 +88,6 @@ public class ToothBehaviour : MonoBehaviour
         _healthyTooth.SetActive ( _state == ToothState.Healthy );
         _chippedTooth.SetActive ( _state == ToothState.Chipped );
         _damagedTooth.SetActive ( _state == ToothState.Damaged );
+        _rootTooth.SetActive ( _state != ToothState.Destroyed );
     }
 }

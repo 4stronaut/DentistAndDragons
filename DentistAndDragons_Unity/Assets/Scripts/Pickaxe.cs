@@ -23,9 +23,7 @@ public class Pickaxe : MonoBehaviour {
     }
 
     private void OnTriggerEnter ( Collider other ) {
-        Debug.Log ( "VELOSQR "+ _lastVelocitySquared );
         if ( _lastVelocitySquared> _minVelocity && other.gameObject.layer == 3 ) {
-
             if ( _hitEffect )
                 Instantiate ( _hitEffect, other.ClosestPoint ( _pickaxeTip.position ), Quaternion.FromToRotation ( transform.up, -_pickaxeTip.right ) );
             ToothBehaviour tooth = other.transform.parent.GetComponent<ToothBehaviour> ();
