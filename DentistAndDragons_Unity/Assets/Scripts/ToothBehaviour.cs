@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ToothBehaviour : MonoBehaviour
 {
-    public float health = 100f;
+    [SerializeField]
+    private float _totalHealth = 100f;
 
     [SerializeField]
     private GameObject _healthyTooth;
@@ -18,6 +19,12 @@ public class ToothBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject destructionEffect;
 
+    private float _currentHealth;
+
+    private void Start () {
+        _currentHealth = _totalHealth;
+    }
+
     public enum ToothState {
         Healthy,
         Chipped,
@@ -26,6 +33,30 @@ public class ToothBehaviour : MonoBehaviour
     }
 
     private ToothState _state = ToothState.Healthy;
+
+    public void TakeDamage( float damage ) {
+        _currentHealth -= damage;
+        float pHealth = _currentHealth / _totalHealth;
+        _state = ToothState.Healthy;
+        if( pHealth < 0.25f ) {
+            _state = ToothState.Destroyed;
+            UpdateToothState ();
+            return;
+        }
+        if ( pHealth < 0.5f ) {
+            _state = ToothState.Damaged;
+            UpdateToothState ();
+            return;
+        }
+        if ( pHealth < 0.75f ) {
+            _state = ToothState.Chipped;
+            UpdateToothState ();
+            return;
+        }
+        _state = ToothState.Healthy;
+        UpdateToothState ();
+        return;
+    }
 
     public void DecreaseState () {
         switch ( _state ) {
