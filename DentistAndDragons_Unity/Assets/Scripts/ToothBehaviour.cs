@@ -43,25 +43,37 @@ public class ToothBehaviour : MonoBehaviour {
         float pHealth = _currentHealth / _totalHealth;
         _state = ToothState.Healthy;
         if ( pHealth < 0.0 ) {
-            _state = ToothState.Destroyed;
-            UpdateToothState ();
-            Instantiate ( destructionEffect, transform.position, Quaternion.LookRotation(transform.up));
-            StartCoroutine ( RegenerateTooth () );
+            if ( _state != ToothState.Destroyed ) {
+                _state = ToothState.Destroyed;
+                DragonVoice.Instance.PlayDragonHurtSound ();              
+                UpdateToothState ();
+                Instantiate ( destructionEffect, transform.position, Quaternion.LookRotation ( transform.up ) );
+                StartCoroutine ( RegenerateTooth () );
+            }
             return;
         }
         if ( pHealth < 0.25f ) {
-            _state = ToothState.Root;
-            UpdateToothState ();
+            if ( _state != ToothState.Root ) {            
+                _state = ToothState.Root;
+                DragonVoice.Instance.PlayDragonHurtSound ();
+                UpdateToothState ();
+            }
             return;
         }
         if ( pHealth < 0.5f ) {
-            _state = ToothState.Damaged;
-            UpdateToothState ();
+            if ( _state != ToothState.Damaged ) {
+                _state = ToothState.Damaged;
+                DragonVoice.Instance.PlayDragonHurtSound ();
+                UpdateToothState ();
+            }
             return;
         }
         if ( pHealth < 0.75f ) {
-            _state = ToothState.Chipped;
-            UpdateToothState ();
+            if ( _state != ToothState.Chipped ) {
+                _state = ToothState.Chipped;
+                DragonVoice.Instance.PlayDragonHurtSound ();
+                UpdateToothState ();
+            }
             return;
         }
         _state = ToothState.Healthy;
