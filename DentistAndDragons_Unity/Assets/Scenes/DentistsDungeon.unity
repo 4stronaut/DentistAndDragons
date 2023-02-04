@@ -1490,7 +1490,7 @@ PrefabInstance:
     - target: {fileID: 5654041887657644704, guid: 85789e2bd1c47b24d977827d99514e00,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.7
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 5654041887657644704, guid: 85789e2bd1c47b24d977827d99514e00,
         type: 3}
@@ -2523,7 +2523,6 @@ GameObject:
   - component: {fileID: 2095999558}
   - component: {fileID: 2095999574}
   - component: {fileID: 2095999573}
-  - component: {fileID: 2095999571}
   - component: {fileID: 2095999569}
   - component: {fileID: 2095999566}
   - component: {fileID: 2095999565}
@@ -2571,7 +2570,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095999557}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bb0f5a590bee8641b2298ad4ad21c1c, type: 3}
   m_Name: 
@@ -2625,21 +2624,6 @@ MonoBehaviour:
   Gravity: -9.8
   AimVelocity: 2
   AimStep: 0.2
---- !u!114 &2095999571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095999557}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810484434e07d83468e261ce07d92106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AimButton: 1
-  TeleportButton: 67108864
-  FastTeleport: 0
 --- !u!114 &2095999572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2680,7 +2664,7 @@ MonoBehaviour:
   EnableRotationDuringReady: 1
   EnableRotationDuringAim: 0
   EnableRotationDuringPreTeleport: 0
-  EnableRotationDuringPostTeleport: 1
+  EnableRotationDuringPostTeleport: 0
   TeleportDestinationPrefab: {fileID: 114000013141257940, guid: 1b474618c4fc5f54e8a8b803c8352c7d,
     type: 3}
   TeleportDestinationLayer: 4
