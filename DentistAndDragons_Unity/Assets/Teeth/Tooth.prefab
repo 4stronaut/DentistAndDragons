@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 2536691958014527464}
   m_Layer: 0
   m_Name: Tooth
-  m_TagString: H2SUV8A
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

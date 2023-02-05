@@ -36,19 +36,16 @@ public class CustomRootGrabbable : MonoBehaviour
     }
     private RootState _state = RootState.Released;
 
-    private void Awake()
-    {
-        if (!_leftHandAnchor)
-            _leftHandAnchor = Globals.instance.getLeftHandAnchor();
-
-        if (!_leftHandRigidbody)
-            _leftHandRigidbody = Globals.instance.getLeftHandRigidbody();
-    }
-
     private void Start()
     {
+        if ( !_leftHandAnchor )
+            _leftHandAnchor = Globals.instance.getLeftHandAnchor ();
+
+        if ( !_leftHandRigidbody )
+            _leftHandRigidbody = Globals.instance.getLeftHandRigidbody ();
         _lastPos = _leftHandAnchor.transform.position;
         _lastRot = _leftHandAnchor.transform.rotation;
+        
     }
 
     private void OnTriggerStay(Collider other)

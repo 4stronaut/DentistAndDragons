@@ -39,7 +39,7 @@ public class Drill : MonoBehaviour
 
             if (_hitEffect)
                 Instantiate(_hitEffect, other.ClosestPoint(_drillTip.position), Quaternion.FromToRotation(transform.up, -_drillTip.right));
-            ToothBehaviour tooth = other.transform.parent.GetComponent<ToothBehaviour>();
+            ToothBehaviour tooth = other.transform.GetComponentInParent<ToothBehaviour>();
             tooth.TakeDamage(10f); // * _drillSpeed
 
             _cooldown = _cooldownDuration;
