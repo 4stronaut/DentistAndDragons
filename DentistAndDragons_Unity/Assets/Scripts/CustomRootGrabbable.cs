@@ -45,6 +45,7 @@ public class CustomRootGrabbable : MonoBehaviour
 
         if ( !_leftHandRigidbody )
             _leftHandRigidbody = Globals.instance.getLeftHandRigidbody ();
+
         _lastPos = _leftHandAnchor.transform.position;
         _lastRot = _leftHandAnchor.transform.rotation;
         
@@ -58,6 +59,14 @@ public class CustomRootGrabbable : MonoBehaviour
 
             _startPos = Vector3.Normalize(_leftHandAnchor.transform.position - this.transform.position);
             _currentRot = this.transform.rotation;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (_isPullable && _state == RootState.Grabbed && other.gameObject.layer == 4 && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
+        {
+            _state = RootState.Released;
         }
     }
 
@@ -115,7 +124,13 @@ public class CustomRootGrabbable : MonoBehaviour
     {
         if(_rigidbody) 
             Destroy(_rigidbody);
+
+        if (_yOffsetGameObject)
+            _yOffsetGameObject.transform.localPosition = Vector3.zero;
+
         this.transform.position = Vector3.zero;
         this.transform.rotation = Quaternion.identity;
+        _accumulatedDeltaRotation = 0f;
+        _isPullable = false;
     }
 }
