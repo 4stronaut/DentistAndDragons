@@ -14,6 +14,8 @@ public class WorldController : MonoBehaviour
     {
         startTime = DateTime.UtcNow;
         started = true;
+        bobbert.hurt();
+        bobbert.openMouth();
     }
 
     private void Update()
