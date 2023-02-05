@@ -6,7 +6,8 @@ public class WinEffectsontroller : MonoBehaviour
 {
     public GameObject effect;
     public float size=10f;
-    void Start()
+
+    public void startEffects()
     {
         InvokeRepeating("spawnEffect",0f,0.1f);
     }
