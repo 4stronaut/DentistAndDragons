@@ -130,14 +130,14 @@ public class ToothBehaviour : MonoBehaviour {
         _rootTooth.SetActive ( _state != ToothState.Destroyed );
     }
 
-    IEnumerator RegenerateTooth () {
+    public IEnumerator RegenerateTooth () {
         yield return new WaitForSeconds ( Random.Range ( 5f, 10f ) );
         _currentHealth = _totalHealth;
         _state = ToothState.Healthy;
         rootScript.resetToothRoot ();
         if ( _replaceWithGold ) {
-            _rootTooth.GetComponent<Renderer> ().sharedMaterial = goldMaterial;
-            _healthyTooth.GetComponent<Renderer> ().sharedMaterial = goldMaterial;
+            _rootTooth.GetComponentInChildren<Renderer> ().sharedMaterial = goldMaterial;
+            _healthyTooth.GetComponentInChildren<Renderer> ().sharedMaterial = goldMaterial;
             isGolden = true;
         }
         rootScript._isPullable = false;

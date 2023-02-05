@@ -30,6 +30,8 @@ public class CustomRootGrabbable : MonoBehaviour
 
     private Rigidbody _rigidbody;
 
+    private Transform _oldParent;
+
     public enum RootState
     {
         Released,
@@ -73,16 +75,16 @@ public class CustomRootGrabbable : MonoBehaviour
     private void FixedUpdate()
     {
         // Drop the root
-        if (!OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
         {
             if (_state == RootState.Held)
             {
-                this.transform.SetParent(null);
+                this.transform.SetParent(_oldParent);
                 foreach (Collider c in GetComponentsInChildren<Collider>())
                     c.enabled = true;
                 _rigidbody = this.gameObject.AddComponent<Rigidbody>();
 
-                if (_leftHandRigidbody)
+                if (_leftHandRigidbody && _rigidbody)
                 {
                     Vector3 newpos = _leftHandAnchor.transform.position;
                     Vector3 diff = newpos - _lastPos;
@@ -91,9 +93,13 @@ public class CustomRootGrabbable : MonoBehaviour
                 }
                 _rigidbody.useGravity = true;
                 this.GetComponent<Collider>().isTrigger = false;
+
+                this.GetComponentInParent<ToothBehaviour>().StartCoroutine(this.GetComponentInParent<ToothBehaviour>().RegenerateTooth());
             }
 
             _state = RootState.Released;
+
+
         }
 
         // Pull it out
@@ -111,6 +117,7 @@ public class CustomRootGrabbable : MonoBehaviour
 
             if (_accumulatedDeltaRotation >= _maxWiggleToPull)
             {
+                _oldParent = this.transform.parent;
                 this.transform.SetParent(_leftHandAnchor.transform);
                 this.transform.position = _leftHandAnchor.transform.position; // oh snap!
                 _state = RootState.Held;
@@ -134,9 +141,10 @@ public class CustomRootGrabbable : MonoBehaviour
         if (_yOffsetGameObject)
             _yOffsetGameObject.transform.localPosition = Vector3.zero;
 
-        this.transform.position = Vector3.zero;
-        this.transform.rotation = Quaternion.identity;
+        this.transform.localPosition = Vector3.zero;
+        this.transform.localRotation = Quaternion.identity;
         _accumulatedDeltaRotation = 0f;
         _isPullable = false;
+        _state = RootState.Released;
     }
 }

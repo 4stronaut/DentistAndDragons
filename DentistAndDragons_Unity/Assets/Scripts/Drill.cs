@@ -19,12 +19,19 @@ public class Drill : MonoBehaviour
     private float _cooldownDuration = 0.2f;
     private float _cooldown;
 
+    [SerializeField]
+    private AudioSource _drillSound;
+
     void Update()
     {
         float triggerForce = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
         _drillSpeed = 100f * triggerForce * triggerForce;
 
         gameObject.transform.Rotate(0f, 0f, -_drillSpeed);
+        if (triggerForce > 0)
+            _drillSound.Play();
+        else
+            _drillSound.Stop();
     }
 
     private void OnTriggerStay(Collider other)
