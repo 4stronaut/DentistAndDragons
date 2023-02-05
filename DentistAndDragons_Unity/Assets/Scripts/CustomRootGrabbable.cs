@@ -53,7 +53,7 @@ public class CustomRootGrabbable : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (_isPullable && _state == RootState.Released && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
+        if (_isPullable && _state == RootState.Released && other.gameObject.layer == 4 && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
         {
             _state = RootState.Grabbed;
 

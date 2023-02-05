@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 961853991556873467}
   - component: {fileID: 4329032406684103275}
   - component: {fileID: 7033037297646770372}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tooth_01_root_handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1541445705272386531}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: yOffset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
