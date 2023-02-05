@@ -78,7 +78,10 @@ public class CustomRootGrabbable : MonoBehaviour
             if (_state == RootState.Held)
             {
                 this.transform.SetParent(null);
+                foreach (Collider c in GetComponentsInChildren<Collider>())
+                    c.enabled = true;
                 _rigidbody = this.gameObject.AddComponent<Rigidbody>();
+
                 if (_leftHandRigidbody)
                 {
                     Vector3 newpos = _leftHandAnchor.transform.position;
@@ -109,8 +112,11 @@ public class CustomRootGrabbable : MonoBehaviour
             if (_accumulatedDeltaRotation >= _maxWiggleToPull)
             {
                 this.transform.SetParent(_leftHandAnchor.transform);
+                this.transform.position = _leftHandAnchor.transform.position; // oh snap!
                 _state = RootState.Held;
 
+                foreach (Collider c in GetComponentsInChildren<Collider>())
+                    c.enabled = false;
                 DragonVoice.Instance.PlayDragonHurtSound();
                 Instantiate(destructionEffect, _yOffsetGameObject.transform.position, Quaternion.LookRotation(-this.transform.up));
             }
