@@ -9,7 +9,15 @@ public class WorldController : MonoBehaviour
     [SerializeField] private BobbertController bobbert;
     [SerializeField] private bool started;
     [SerializeField] private DateTime startTime;
-    
+    public float openCloseTimer = 25f;
+    public WinEffectsontroller winEffect;
+    public GameObject sign;
+
+    private void Start()
+    {
+        startGame();
+    }
+
     public void startGame()
     {
         startTime = DateTime.UtcNow;
@@ -22,15 +30,30 @@ public class WorldController : MonoBehaviour
     {
         if (!started) return;
         TimeSpan ts = DateTime.UtcNow - startTime;
-        if (ts.Seconds > 20)
+        if (ts.Seconds > openCloseTimer)
         {
             startTime = DateTime.UtcNow;
             bobbert.switchMouthState();
         }
+        if(false) winGame();
     }
 
-    public void stopGame()
+    
+    public void winGame()
     {
+        winEffect.startEffects();
+        bobbert.closeMouth();
+        bobbert.hurt();
+        bobbert.hurt();
+        bobbert.hurt();
+        bobbert.hurt();
+        bobbert.hurt();
+        bobbert.hurt();
+    }
+
+    public void resetGame()
+    {
+        
     }
 
 }
