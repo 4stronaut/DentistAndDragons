@@ -7,6 +7,8 @@ public class BobbertController : MonoBehaviour
 {
     public Animator animator;
     public AudioSource audioSource;
+    public bool mouthState;
+    
     private void Awake()
     {
         animator.GetComponent<Animator>();
@@ -37,4 +39,9 @@ public class BobbertController : MonoBehaviour
         animator.SetTrigger("AnimationTrigger");
     }
 
+    public void switchMouthState()
+    {
+        mouthState = !mouthState;
+        animator.SetBool("MouthState",mouthState);
+    }
 }
