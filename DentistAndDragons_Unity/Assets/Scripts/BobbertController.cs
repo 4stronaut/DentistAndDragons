@@ -45,14 +45,15 @@ public class BobbertController : MonoBehaviour
 
     public void switchMouthState()
     {
-        mouthOpen = !mouthOpen;
         if (mouthOpen)
         {
             closeMouth();
+            mouthOpen = false;
         }
         else
         {
             openMouth();
+            mouthOpen = true;
         }
     }
 }

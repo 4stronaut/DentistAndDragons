@@ -32,6 +32,7 @@ public class WorldController : MonoBehaviour
         TimeSpan ts = DateTime.UtcNow - startTime;
         if (ts.Seconds > openCloseTimer)
         {
+            Debug.Log("LDSJDLSJ");
             startTime = DateTime.UtcNow;
             bobbert.switchMouthState();
         }
