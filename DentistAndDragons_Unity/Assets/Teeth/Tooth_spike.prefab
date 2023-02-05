@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453330823330134607}
-  m_LocalRotation: {x: -0.7186204, y: -0.040177222, z: -0.044003367, w: -0.692845}
-  m_LocalPosition: {x: 0.12684083, y: 0.44518495, z: -0.0019062757}
-  m_LocalScale: {x: 200.00002, y: 200.00002, z: 200.00002}
+  m_LocalRotation: {x: -0.71862054, y: -0.040177226, z: -0.044003382, w: -0.692845}
+  m_LocalPosition: {x: 0.09513064, y: 0.33388868, z: -0.0014299452}
+  m_LocalScale: {x: 150.00002, y: 150.00002, z: 149.99995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5527624205071870797}
@@ -123,9 +123,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754827405943571231}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.000000029802322, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75000006, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4232252663868862196}
@@ -190,9 +190,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2613351818922790440}
-  m_LocalRotation: {x: -0.7186204, y: -0.040177222, z: -0.044003367, w: -0.692845}
-  m_LocalPosition: {x: 0.24092102, y: 0.8176199, z: 0.04427421}
-  m_LocalScale: {x: 200.00002, y: 200.00002, z: 200.00002}
+  m_LocalRotation: {x: -0.71862054, y: -0.040177226, z: -0.044003382, w: -0.692845}
+  m_LocalPosition: {x: 0.1806909, y: 0.61321485, z: 0.033205807}
+  m_LocalScale: {x: 150.00002, y: 150.00002, z: 149.99995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5527624205071870797}
@@ -418,9 +418,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4837802910321897321}
-  m_LocalRotation: {x: -0.7186204, y: -0.040177222, z: -0.044003367, w: -0.692845}
-  m_LocalPosition: {x: 0.16673231, y: 0.6047045, z: 0.009759188}
-  m_LocalScale: {x: 200.00002, y: 200.00002, z: 200.00002}
+  m_LocalRotation: {x: -0.71862054, y: -0.040177226, z: -0.044003382, w: -0.692845}
+  m_LocalPosition: {x: 0.125049, y: 0.45352837, z: 0.0073194355}
+  m_LocalScale: {x: 150.00002, y: 150.00002, z: 149.99995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5527624205071870797}
@@ -563,7 +563,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4c61c9a55952e1545b0240d0c9b4ea87, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
