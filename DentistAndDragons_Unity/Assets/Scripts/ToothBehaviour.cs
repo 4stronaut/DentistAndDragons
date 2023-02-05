@@ -35,6 +35,9 @@ public class ToothBehaviour : MonoBehaviour {
 
     public bool isGolden = false;
 
+    [SerializeField]
+    private AudioSource _crumbleSound;
+
     private void Start () {
         _currentHealth = _totalHealth;
     }
@@ -71,6 +74,7 @@ public class ToothBehaviour : MonoBehaviour {
             if ( _state != ToothState.Root ) {
                 _state = ToothState.Root;
                 DragonVoice.Instance.PlayDragonHurtSound ();
+                _crumbleSound.PlayOneShot(_crumbleSound.clip);
                 UpdateToothState ();
                 rootScript._isPullable = true;
             }
@@ -80,6 +84,7 @@ public class ToothBehaviour : MonoBehaviour {
             if ( _state != ToothState.Damaged ) {
                 _state = ToothState.Damaged;
                 DragonVoice.Instance.PlayDragonHurtSound ();
+                _crumbleSound.PlayOneShot ( _crumbleSound.clip );
                 UpdateToothState ();
             }
             return;
@@ -88,6 +93,7 @@ public class ToothBehaviour : MonoBehaviour {
             if ( _state != ToothState.Chipped ) {
                 _state = ToothState.Chipped;
                 DragonVoice.Instance.PlayDragonHurtSound ();
+                _crumbleSound.PlayOneShot ( _crumbleSound.clip );
                 UpdateToothState ();
             }
             return;
