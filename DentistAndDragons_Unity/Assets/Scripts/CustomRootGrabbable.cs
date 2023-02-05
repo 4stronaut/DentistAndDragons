@@ -26,6 +26,8 @@ public class CustomRootGrabbable : MonoBehaviour
     private Vector3 _lastPos;
     private Quaternion _lastRot;
 
+    public bool _isPullable = false;
+
     public enum RootState
     {
         Released,
@@ -34,6 +36,14 @@ public class CustomRootGrabbable : MonoBehaviour
     }
     private RootState _state = RootState.Released;
 
+    private void Awake()
+    {
+        if (!_leftHandAnchor)
+            _leftHandAnchor = Globals.instance.getLeftHandAnchor();
+
+        if (!_leftHandRigidbody)
+            _leftHandRigidbody = Globals.instance.getLeftHandRigidbody();
+    }
 
     private void Start()
     {
@@ -43,7 +53,7 @@ public class CustomRootGrabbable : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (_state == RootState.Released && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
+        if (_isPullable && _state == RootState.Released && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
         {
             _state = RootState.Grabbed;
 
@@ -54,6 +64,7 @@ public class CustomRootGrabbable : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Drop the root
         if (!OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
         {
             if (_state == RootState.Held)
@@ -74,7 +85,8 @@ public class CustomRootGrabbable : MonoBehaviour
             _state = RootState.Released;
         }
 
-        if (_state == RootState.Grabbed)
+        // Pull it out
+        if (_state == RootState.Grabbed) 
         {
             Vector3 closestPoint = Vector3.Normalize(_leftHandAnchor.transform.position - this.transform.position);
             this.transform.rotation = Quaternion.FromToRotation(_startPos, closestPoint) * _currentRot;
@@ -91,6 +103,7 @@ public class CustomRootGrabbable : MonoBehaviour
                 this.transform.SetParent(_leftHandAnchor.transform);
                 _state = RootState.Held;
 
+                DragonVoice.Instance.PlayDragonHurtSound();
                 Instantiate(destructionEffect, _yOffsetGameObject.transform.position, Quaternion.LookRotation(-this.transform.up));
             }
             

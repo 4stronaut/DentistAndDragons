@@ -2742,7 +2742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _yOffsetGameObject: {fileID: 1823544082}
   _leftHandRigidbody: {fileID: 768515684}
-  _maxWiggleToPull: 2500
+  _maxWiggleToPull: 2000
   _leftHandAnchor: {fileID: 594618072}
   destructionEffect: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}

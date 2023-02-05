@@ -22,6 +22,9 @@ public class ToothBehaviour : MonoBehaviour {
     [SerializeField]
     private GameObject destructionEffect;
 
+    [SerializeField]
+    private CustomRootGrabbable rootScript;
+
     private float _currentHealth;
 
     private void Start () {
@@ -57,6 +60,7 @@ public class ToothBehaviour : MonoBehaviour {
                 _state = ToothState.Root;
                 DragonVoice.Instance.PlayDragonHurtSound ();
                 UpdateToothState ();
+                rootScript._isPullable = true;
             }
             return;
         }
@@ -112,6 +116,7 @@ public class ToothBehaviour : MonoBehaviour {
         yield return new WaitForSeconds ( Random.Range ( 5f, 10f ) );
         _currentHealth = _totalHealth;
         _state = ToothState.Healthy;
+        rootScript._isPullable = false;
         transform.localScale = Vector3.zero;
         transform.DOScale ( 1f, 2f );
         UpdateToothState ();
