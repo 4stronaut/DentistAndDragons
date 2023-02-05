@@ -256,6 +256,7 @@ MonoBehaviour:
   goldMaterial: {fileID: 2100000, guid: b25554be42142e441b4053414184bd13, type: 2}
   _replaceWithGold: 1
   isGolden: 0
+  _crumbleSound: {fileID: 3582849007505890609}
 --- !u!82 &3582849007505890609
 AudioSource:
   m_ObjectHideFlags: 0
