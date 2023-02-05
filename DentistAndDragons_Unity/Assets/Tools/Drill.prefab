@@ -259,22 +259,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4089934211583096337, guid: 68937e0f5d082dc409b9a2602b464995, type: 3}
---- !u!114 &671236185514278909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7978439674614293640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f422a35e326fa0d4bbabf88ab347ef4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _drillTip: {fileID: 671236185219077275}
-  _hitEffect: {fileID: 100002, guid: f04e15e9b0b32f24b9e87868e8bfbeea, type: 3}
-  _minDrillDmgSpeed: 50
-  _cooldownDuration: 0.2
 --- !u!82 &2164600501043916691
 AudioSource:
   m_ObjectHideFlags: 0
@@ -371,3 +355,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &671236185514278909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978439674614293640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f422a35e326fa0d4bbabf88ab347ef4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _drillTip: {fileID: 671236185219077275}
+  _hitEffect: {fileID: 100002, guid: f04e15e9b0b32f24b9e87868e8bfbeea, type: 3}
+  _minDrillDmgSpeed: 50
+  _cooldownDuration: 0.2
+  _drillSound: {fileID: 2164600501043916691}
