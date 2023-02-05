@@ -4604,7 +4604,7 @@ GameObject:
   - component: {fileID: 5092481007408383624}
   - component: {fileID: 1784306338888119864}
   m_Layer: 0
-  m_Name: BloodSprayEffect
+  m_Name: BloodExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4617,7 +4617,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000012909287652}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.655, z: 3.231}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4625,7 +4625,7 @@ Transform:
   - {fileID: 4000010553517452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &198000011254678926
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4842,7 +4842,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5110,8 +5110,8 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
-    angle: 20
+    type: 0
+    angle: 90
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -5316,7 +5316,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 70
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5369,7 +5369,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 70
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -9255,7 +9255,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4c88d28126f07ef42aa02d3f5a6baa6f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ce05149b02c262c45bc7abfefd2beca1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
