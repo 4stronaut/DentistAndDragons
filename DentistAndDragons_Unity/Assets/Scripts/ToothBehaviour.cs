@@ -25,7 +25,15 @@ public class ToothBehaviour : MonoBehaviour {
     [SerializeField]
     private CustomRootGrabbable rootScript;
 
+    [SerializeField]
+    private Material goldMaterial;
+
+    [SerializeField]
+    private bool _replaceWithGold = false;
+
     private float _currentHealth;
+
+    public bool isGolden = false;
 
     private void Start () {
         _currentHealth = _totalHealth;
@@ -36,27 +44,31 @@ public class ToothBehaviour : MonoBehaviour {
         Chipped,
         Damaged,
         Root,
-        Destroyed
+        Destroyed,
+        Golden
     }
 
     private ToothState _state = ToothState.Healthy;
 
     public void TakeDamage ( float damage ) {
+        //no damage for golden teeth!
+        if ( isGolden )
+            return;
         _currentHealth -= damage;
         float pHealth = _currentHealth / _totalHealth;
         _state = ToothState.Healthy;
-        if ( pHealth < 0.0 ) {
+        /*if ( pHealth < 0.0 ) {
             if ( _state != ToothState.Destroyed ) {
                 _state = ToothState.Destroyed;
-                DragonVoice.Instance.PlayDragonHurtSound ();              
+                DragonVoice.Instance.PlayDragonHurtSound ();
                 UpdateToothState ();
                 Instantiate ( destructionEffect, transform.position, Quaternion.LookRotation ( transform.up ) );
                 StartCoroutine ( RegenerateTooth () );
             }
             return;
-        }
+        }*/
         if ( pHealth < 0.25f ) {
-            if ( _state != ToothState.Root ) {            
+            if ( _state != ToothState.Root ) {
                 _state = ToothState.Root;
                 DragonVoice.Instance.PlayDragonHurtSound ();
                 UpdateToothState ();
@@ -116,10 +128,17 @@ public class ToothBehaviour : MonoBehaviour {
         yield return new WaitForSeconds ( Random.Range ( 5f, 10f ) );
         _currentHealth = _totalHealth;
         _state = ToothState.Healthy;
+        rootScript.resetToothRoot ();
+        if ( _replaceWithGold ) {
+            _rootTooth.GetComponent<Renderer> ().sharedMaterial = goldMaterial;
+            _healthyTooth.GetComponent<Renderer> ().sharedMaterial = goldMaterial;
+            isGolden = true;
+        }
         rootScript._isPullable = false;
         transform.localScale = Vector3.zero;
         transform.DOScale ( 1f, 2f );
         UpdateToothState ();
         yield return null;
     }
+
 }
