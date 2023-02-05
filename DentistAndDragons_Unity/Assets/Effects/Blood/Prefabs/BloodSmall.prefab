@@ -4604,7 +4604,7 @@ GameObject:
   - component: {fileID: 5092481007408383624}
   - component: {fileID: 1784306338888119864}
   m_Layer: 0
-  m_Name: BloodSprayEffect
+  m_Name: BloodSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5110,7 +5110,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 0
     angle: 20
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -5197,7 +5197,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.01
+      value: 0.34
       mode: 0
       spread: 0
       speed:
@@ -5316,7 +5316,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 3
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5426,7 +5426,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 1
         minScalar: 5
         maxCurve:
           serializedVersion: 2
@@ -9255,7 +9255,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4c88d28126f07ef42aa02d3f5a6baa6f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fac2f0b6c7c15da4ab0e1d012046afc8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
