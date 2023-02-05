@@ -28,6 +28,8 @@ public class CustomRootGrabbable : MonoBehaviour
 
     public bool _isPullable = false;
 
+    private Rigidbody _rigidbody;
+
     public enum RootState
     {
         Released,
@@ -67,15 +69,15 @@ public class CustomRootGrabbable : MonoBehaviour
             if (_state == RootState.Held)
             {
                 this.transform.SetParent(null);
-                Rigidbody rb = this.gameObject.AddComponent<Rigidbody>();
+                _rigidbody = this.gameObject.AddComponent<Rigidbody>();
                 if (_leftHandRigidbody)
                 {
                     Vector3 newpos = _leftHandAnchor.transform.position;
                     Vector3 diff = newpos - _lastPos;
-                    rb.velocity = diff / Time.deltaTime;
-                    rb.angularVelocity = Vector3.one * 2;
+                    _rigidbody.velocity = diff / Time.deltaTime;
+                    _rigidbody.angularVelocity = Vector3.one * 2;
                 }
-                rb.useGravity = true;
+                _rigidbody.useGravity = true;
                 this.GetComponent<Collider>().isTrigger = false;
             }
 
@@ -109,4 +111,11 @@ public class CustomRootGrabbable : MonoBehaviour
         _lastPos = _leftHandAnchor.transform.position;
     }
 
+    public void resetToothRoot()
+    {
+        if(_rigidbody) 
+            Destroy(_rigidbody);
+        this.transform.position = Vector3.zero;
+        this.transform.rotation = Quaternion.identity;
+    }
 }
