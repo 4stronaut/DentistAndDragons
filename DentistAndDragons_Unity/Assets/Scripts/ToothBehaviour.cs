@@ -59,7 +59,7 @@ public class ToothBehaviour : MonoBehaviour {
             return;
         _currentHealth -= damage;
         float pHealth = _currentHealth / _totalHealth;
-        _state = ToothState.Healthy;
+        //_state = ToothState.Healthy;
         /*if ( pHealth < 0.0 ) {
             if ( _state != ToothState.Destroyed ) {
                 _state = ToothState.Destroyed;
