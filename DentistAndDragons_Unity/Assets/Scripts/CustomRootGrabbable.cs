@@ -100,7 +100,7 @@ public class CustomRootGrabbable : MonoBehaviour
         if (_state == RootState.Grabbed) 
         {
             Vector3 closestPoint = Vector3.Normalize(_leftHandAnchor.transform.position - this.transform.position);
-            this.transform.rotation = Quaternion.FromToRotation(_startPos, closestPoint) * _currentRot;
+            this.transform.rotation = _currentRot * Quaternion.FromToRotation(_startPos, closestPoint);
 
             float deltaAngle = Quaternion.Angle(_lastRot, _leftHandAnchor.transform.rotation);
             _accumulatedDeltaRotation += deltaAngle;
