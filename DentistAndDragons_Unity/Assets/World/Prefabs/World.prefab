@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobbert: {fileID: 2774293795103844916}
   started: 0
-  openCloseTimer: 25
+  openCloseTimer: 15
   winEffect: {fileID: 910583987328439078}
   sign: {fileID: 41239280041337262}
 --- !u!82 &1665017750370877573
